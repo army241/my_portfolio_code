@@ -1,0 +1,77 @@
+/* Center everything on the page */
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(27, 26, 26);
+}
+
+/* Space container */
+.space {
+  width: 1000px;
+  height: 600px;
+  position: relative;
+}
+
+/* Earth */
+.earth {
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  top: 30%;
+  left: 14%;
+ 
+  background-color: #356ea7;
+  border-radius: 50%;
+}
+.earth-orbit{
+ width: 390px;
+  height: 390px;
+  border-radius: 50%;
+  border: 3px solid white;
+  position: absolute;
+  top: 50px;
+  left: 10px;
+}
+
+/* Orbit path */
+.orbit {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 25%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  animation: orbit 5s linear infinite;
+}
+
+/* Moon */
+.moon {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #999393;
+  border-radius: 50%;
+}
+.sun{
+    width: 350px;
+    height: 350px;
+    position: absolute;
+    top: -30%;
+    right: -35%;
+    background: radial-gradient(circle, #FFFFFF 0%, #FFD700 30%, #FF8C00 60%, #FF4500 85%);
+    border-radius: 50%;
+    box-shadow: -90px 100px 200px  #993f3f;
+}
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translate(-50%, -50%);
+  }
+  100% {
+    transform: rotate(360deg) translate(-50%, -50%);
+  }
+}

@@ -1,16 +1,17 @@
 body{
-    background-color: #87CEEB;
+    background-color: #2a2b2c;
 }
 #house {
   position: relative;
   width: 500px;
   height: 400px;
-  background-color: whitesmoke;
+  background-color: rgb(46, 44, 44);
   border: 4px solid #333;
   margin: 200px auto;
   border-bottom-left-radius: 10%;
   border-bottom-right-radius: 10%;
   box-shadow: 20px 15px 20px rgb(42, 38, 38);
+  border: 1px solid white;
 }
 
 #house > div {
@@ -24,8 +25,14 @@ body{
   height: 100px;
   background-color: #9c3a3a;
   border: 3px solid #000;
+  display: flex;
+  gap: 2px;
 }
-
+#roof div{
+  border: 1px solid black;
+  width: 100%;
+  height: 100%;
+}
 #chimney {
   top: -101px;
   left: 60px;
@@ -48,7 +55,7 @@ body{
   left: 80px;
   width: 80px;
   height: 60px;
-  background-color: #add8e6;
+  background-color: #49575c;
   border: 2px solid #000;
   border-radius: 20%;
   
@@ -59,7 +66,7 @@ body{
   right: 80px;
   width: 80px;
   height: 60px;
-  background-color: #add8e6;
+  background-color: #49575c;
   border: 2px solid #000;
   border-radius: 20%;
 }
@@ -74,15 +81,15 @@ body{
   border-top-left-radius: 10%;
   border-top-right-radius: 10%;
 }
-#sun{
+#moon{
     border-radius: 50%;
     position: absolute;
     width: 300px;
     height: 300px;
     top: -120px;
     left: -120px;
-    background-color: yellow;
-    box-shadow: 15px 15px 15px rgb(159, 159, 105);
+    background-color: rgb(151, 148, 148);
+    box-shadow: 15px 15px 15px rgb(170, 170, 165);
 }
 #coal1{
     border-radius: 80%;
@@ -91,8 +98,8 @@ body{
     position: absolute;
     left: 585px;
     top: 65px;
-    background-color: rgb(194, 182, 182);
-    box-shadow: 5px 5px 3px rgb(226, 221, 221);
+    background-color: rgb(131, 124, 124);
+    box-shadow: 5px 5px 3px rgb(135, 131, 131);
 }
 #coal2{
     border-radius: 80%;
@@ -101,8 +108,8 @@ body{
     position: absolute;
     left: 595px;
     top: 35px;
-    background-color: rgb(196, 190, 190);
-    box-shadow: 2px 2px 3px rgb(226, 221, 221);
+     background-color: rgb(131, 124, 124);
+    box-shadow: 5px 5px 3px rgb(135, 131, 131);
 }
 #cloud1{
     border-radius: 50%;
@@ -111,8 +118,8 @@ body{
     position: absolute;
     left: 995px;
     top: 65px;
-    background-color: rgb(220, 218, 218);
-    box-shadow: 2px 2px 3px rgb(226, 221, 221);
+    background-color: rgb(152, 148, 148);
+    box-shadow: 2px 2px 3px rgb(97, 95, 95);
 }
 #cloud2{
     border-radius: 50%;
@@ -121,8 +128,9 @@ body{
     position: absolute;
     left: 1060px;
     top: 50px;
-    background-color: rgb(220, 218, 218);
-    box-shadow: 2px 2px 3px rgb(226, 221, 221);
+    background-color: rgb(152, 148, 148);
+ 
+    z-index: 100;
 }
 #cloud3{
     border-radius: 50%;
@@ -131,6 +139,92 @@ body{
     position: absolute;
     left: 1150px;
     top: 65px;
-    background-color: rgb(220, 218, 218);
-    box-shadow: 2px 2px 3px rgb(226, 221, 221);
+    background-color: rgb(152, 148, 148);
+    box-shadow: 2px 2px 3px rgb(97, 95, 95);
+}
+.lamp-container {
+  text-align: center;
+  position: absolute;
+  top: 105px;
+  left: 238px;
+
+}
+.handle{
+    width: 6px;
+    height: 35px;
+    background-color: rgb(109, 33, 58);
+    position: absolute;
+    top: 105px;
+    left: 245px;
+    z-index: 100;
+}
+.lamp-div{
+    background-color: rgb(222, 146, 171);
+    border-top-left-radius: 30%;
+    border-top-right-radius: 30%;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 120px;
+    left: 228px;
+    z-index: 200;
+}
+.lamp{
+  position: relative;
+  width: 100px;
+  height: 200px;
+  margin: 20px auto;
+}
+
+
+/* Bulb */
+.bulb {
+  width: 20px;
+  height: 20px;
+  border-radius: 10%;
+  background-color: #cbb014;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+.light {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: -25px;
+  left: -25px;
+  border-radius: 10%;
+  background: rgba(255, 215, 0, 0.1);
+  filter: blur(30px);
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+#level1:checked ~ .lamp .light {
+  background: #ffd900;
+
+}
+#level2:checked ~ .lamp .light {
+  background: rgb(46, 44, 44);
+  box-shadow: 10px -10px 15px rgba(255, 215, 0, 0.2);
+
+}
+label{
+  display: none;
+}
+#ground{
+  width: 1520px;
+  height: 10px;
+  position: absolute;
+  top: 605px;
+  left: 0;
+  background-color: #555;
+}
+#shadow{
+  width: 480px;
+  height: 200px;
+  position: absolute;
+  top: 605px;
+  left: 605px;
+  background-color: #4a4949;
+  transform: skew(40deg);
 }

@@ -1,57 +1,124 @@
 #include <iostream>
+#include <fstream>
 using namespace std;
-struct student
-{
+
+struct Address {
+    char sub_city[50];
+    int woreda;
+    int house_number;
+};
+
+struct student {
     int idno;
-    string fname;
-    int age;
+    char fname[20];
     double gpa;
+    Address address;
 };
 
-void getData(student s[], int &n);
-void display(student s[], int n);
+student getData() {
+    student s;
+    cout << "Enter ID: ";
+    cin >> s.idno;
+    cout << "Enter name: ";
+    cin >> s.fname;
+    cout << "Enter GPA: ";
+    cin >> s.gpa;
+    cout << "Enter Sub city: ";
+    cin >> s.address.sub_city;
+    cout << "Enter woreda: ";
+    cin >> s.address.woreda;
+    cout << "Enter house number: ";
+    cin >> s.address.house_number;
+    return s;
+}
 
-const int MAX_SIZE=100;
-int main()
-{
+void registerStudent(const char* filename) {
+    student s = getData();
+    ofstream file(filename, ios::binary);
+    if (!file) {
+        cout << "Error opening file\n";
+        return;
+    }
+    file.write(reinterpret_cast<char*>(&s), sizeof(student));
+    cout << "Student registered successfully.\n";
+    file.close();
+}
+
+void displayStudents(const char* filename) {
+    ifstream infile(filename, ios::binary);
+    if (!infile) {
+        cout << "Error opening file\n";
+        return;
+    }
+
+    student s;
+    int count = 0;
+    while (infile.read(reinterpret_cast<char*>(&s), sizeof(student))) {
+    	count++;
+        cout << "\nID: " << s.idno << endl;
+        cout << "Name: " << s.fname << endl;
+        cout << "GPA: " << s.gpa << endl;
+        cout << "Sub city: " << s.address.sub_city << endl;
+        cout << "Woreda: " << s.address.woreda << endl;
+        cout << "House number: " << s.address.house_number << endl;
+         cout << "\nTotal number of "<<count<<" record:"<<endl;
+    }
+    infile.close();
+}
+
+void searchStudentByID(const char* filename, int id) {
+    student s;
+    bool found = false;
+    ifstream inFile(filename, ios::binary);
     
-    student s[MAX_SIZE];
-    int n;
-    cout<<"how many student do u want to register: ";
-    cin>>n;
-    getData(s,n);
-    display(s,n);
-
-
-
-}
-void getData(student s[], int &n)
-{
-    for (int i =0;i<n;i++)
-    {
-        cout<<"enter idno: "<<endl;
-        cin>>s[i].idno;
-        cout<<"enter fname: "<<endl;
-        cin>>s[i].fname;
-        cout<<"enter age: "<<endl;
-        cin>>s[i].age;
-        cout<<"enter gpa: "<<endl;
-        cin>>s[i].gpa;
-        cout<<"successfully submitted student report enter another student"<<endl;
-
+    while (inFile.read(reinterpret_cast<char*>(&s), sizeof(student))) {
+        if (s.idno == id) {
+            cout << "ID: " << s.idno << ", Name: " << s.fname << ", GPA: " << s.gpa 
+                 << ", Address: " << s.address.sub_city << ", Woreda: " << s.address.woreda 
+                 << ", House Number: " << s.address.house_number << endl;
+            found = true;
+            break;
+        }
     }
-
-};
-void display(student s[], int n)
-{
-    cout<<"student information"<<endl;
-    for (int i =0;i<n;i++)
-    {
-        cout<<"idno: "<<s[i].idno<<endl;
-        cout<<"fname: "<<s[i].fname<<endl;
-        cout<<"age: "<<s[i].age<<endl;
-        cout<<"gpa: "<<s[i].gpa<<endl;
-
+    if (!found) {
+        cout << "Student with ID " << id << " not found." << endl;
     }
+    inFile.close();
 }
 
+int main() {
+    int choice;
+    const char* filename = "filename.dat";
+	int id;
+    do {
+        cout << "\n===== MENU =====\n";
+        cout << "1. Register a student\n";
+        cout << "2. Display all students\n";
+        cout<< "3. Search student by ID \n";
+        cout << "4. Exit\n";
+        
+        cout << "Your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                registerStudent(filename);
+                break;
+            case 2:
+                displayStudents(filename);
+                break;
+            case 3:
+            	cout<<"Search ID number: ";
+            	cin>>id;
+            	searchStudentByID(filename, id);
+                break;
+            case 4:
+            	cout << "Exiting application...\n";
+            	break;
+            default:
+                cout << "Invalid choice\n";
+        }
+    } while (choice != 3);
+
+    return 0;
+}

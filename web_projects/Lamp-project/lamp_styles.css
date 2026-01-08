@@ -1,0 +1,279 @@
+/* Body styling */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #111;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+.main-container{
+    display: flex;
+    gap: 300px;
+    justify-content: space-evenly;
+}
+/* Lamp container */
+.lamp-container {
+  text-align: center;
+  position: absolute;
+  top: 190px;
+  left: 47px;
+
+}
+.lamp-container2{
+    position: absolute;
+  top: 190px;
+  left: 377px;
+}
+.lamp-container3{
+    position: absolute;
+  top: 190px;
+  left: 748px;
+}
+
+/* Hide radio buttons */
+.lamp-container input[type="radio"] ,.lamp-container2 input[type="radio"],.lamp-container3 input[type="radio"]{
+    display: none;
+}
+.handle{
+    width: 10px;
+    height: 300px;
+    background-color: rgb(109, 33, 58);
+    position: absolute;
+    top: 0;
+    left: 170px;
+    z-index: 100;
+}
+.handle2{
+    width: 10px;
+    height: 300px;
+    background-color: rgb(196, 188, 191);
+    position: absolute;
+    top: 0;
+    left: 500px;
+    z-index: 100;
+}
+.handle3{
+    width: 10px;
+    height: 300px;
+    background-color: rgb(251, 150, 0);
+    position: absolute;
+    top: 0;
+    left: 868px;
+    z-index: 100;
+}
+.lamp-div{
+    background-color: rgb(222, 146, 171);
+    border-top-left-radius: 30%;
+    border-top-right-radius: 30%;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 150px;
+    left: 100px;
+    z-index: 200;
+}
+.lamp-div2{
+    background-color: rgb(146, 197, 222);
+    border-top-left-radius: 30%;
+    border-top-right-radius: 30%;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 150px;
+    left: 430px;
+    z-index: 200;
+}
+.lamp-div3{
+    background-color: rgb(154, 160, 152);
+    border-top-left-radius: 30%;
+    border-top-right-radius: 30%;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 150px;
+    left: 800px;
+    z-index: 200;
+}
+/* Lamp styling */
+.lamp, .lamp2, .lamp3 {
+  position: relative;
+  width: 100px;
+  height: 200px;
+  margin: 20px auto;
+}
+
+
+/* Bulb */
+.bulb {
+  width: 100px;
+  height: 100px;
+  border-radius: 10%;
+  background-color: #cbb014;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+.bulb2 {
+  width: 100px;
+  height: 100px;
+  border-radius: 10%;
+  background-color: #b6b6a5f5;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+.bulb3 {
+  width: 100px;
+  height: 100px;
+  border-radius: 10%;
+  background-color: #983737f5;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+/* Light / glow */
+.light {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: -25px;
+  left: -25px;
+  border-radius: 10%;
+  background: rgba(255, 215, 0, 0.1);
+  filter: blur(30px);
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+.light2 {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: -25px;
+  left: -25px;
+  border-radius: 10%;
+  background: rgba(228, 228, 228, 0.667);
+  filter: blur(30px);
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+.light3 {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: -25px;
+  left: -25px;
+  border-radius: 10%;
+  background: #b92d2df5;
+  filter: blur(30px);
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+/* Brightness levels using :checked */
+.lamp-container #level0:checked ~ .lamp .light {
+  background: rgba(0, 0, 0, 0.497);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+#level1:checked ~ .lamp .light {
+  background: rgba(255, 215, 0, 0.2);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+#level2:checked ~ .lamp .light {
+  background: rgba(255, 215, 0, 0.4);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+}
+#level3:checked ~ .lamp .light {
+  background: rgba(255, 215, 0, 0.6);
+  box-shadow: 0 0 35px rgba(255, 215, 0, 0.6);
+}
+#level4:checked ~ .lamp .light {
+  background: rgba(255, 215, 0, 0.8);
+  box-shadow: 0 0 45px rgba(255, 215, 0, 0.8);
+}
+#level5:checked ~ .lamp .light {
+  background: rgba(255, 215, 0, 1);
+  box-shadow: 0 0 60px rgba(255, 215, 0, 1);
+}
+/* lamp 2 light*/
+#level0b:checked ~ .lamp2 .light2 {
+  background: rgba(0, 0, 0, 0.497);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+#level1b:checked ~ .lamp2 .light2 {
+  background: rgba(132, 130, 121, 0.497);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+#level2b:checked ~ .lamp2 .light2 {
+  background: rgba(235, 234, 231, 0.651);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+}
+#level3b:checked ~ .lamp2 .light2 {
+  background: rgba(249, 246, 243, 0.678);
+  box-shadow: 0 0 35px rgba(255, 215, 0, 0.6);
+}
+#level4b:checked ~ .lamp2 .light2 {
+  background: rgba(227, 224, 224, 0.87);
+  box-shadow: 0 0 45px rgba(255, 215, 0, 0.8);
+}
+#level5b:checked ~ .lamp2 .light2 {
+  background: rgb(255, 255, 255);
+  box-shadow: 0 0 60px rgba(255, 215, 0, 1);
+}
+
+/* lamp 3 light*/
+.lamp-container3 #level0c:checked ~ .lamp3 .light3 {
+  background: rgba(0, 0, 0, 0.497);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+.lamp-container3 #level1c:checked ~ .lamp3 .light3 {
+  background: rgba(112, 52, 36, 0.497);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+.lamp-container3 #level2c:checked ~ .lamp3 .light3 {
+  background: rgba(176, 54, 47, 0.651);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+}
+.lamp-container3 #level3c:checked ~ .lamp3 .light3 {
+  background: rgba(190, 33, 33, 0.678);
+  box-shadow: 0 0 35px rgba(255, 215, 0, 0.6);
+}
+.lamp-container3 #level4c:checked ~ .lamp3 .light3 {
+  background: rgba(213, 28, 28, 0.87);
+  box-shadow: 0 0 45px rgba(255, 215, 0, 0.8);
+}
+.lamp-container3 #level5c:checked ~ .lamp3 .light3 {
+  background: rgb(243, 6, 6);
+  box-shadow: 0 0 60px rgba(255, 215, 0, 1);
+}
+
+/* Labels for brightness control */
+.labels {
+  margin-top: 10px;
+}
+
+.labels label {
+  cursor: pointer;
+  margin: 0 5px;
+  padding: 5px 10px;
+  background-color: #333;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.labels label:hover {
+  background-color: #555;
+}
+.house{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1150px;
+    height: 650px;
+    border: 2px solid white;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+    box-shadow: 5px 5px 5px whitesmoke;
+}

@@ -95,6 +95,8 @@ int main() {
         cout << "1. Register a student\n";
         cout << "2. Display all students\n";
         cout<< "3. Search student by ID \n";
+		cout<< "3. Update Student file \n";
+		cout<< "3. delete student file \n";
         cout << "4. Exit\n";
         
         cout << "Your choice: ";
